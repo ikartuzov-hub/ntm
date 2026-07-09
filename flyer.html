@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nTm — Aberto hoje?</title>
+<link rel="icon" type="image/svg+xml" href="ntm-icon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="nTm">
+<meta name="theme-color" content="#0A1A20">
+<meta property="og:title" content="nTm — Aberto hoje?">
+<meta property="og:description" content="Trilhos da Madeira ao vivo: aberto ou fechado, tempo real no início do trilho, reserva SIMplifica. 14 percursos, 5 línguas.">
+<meta property="og:image" content="https://ikartuzov-hub.github.io/ntm/og-image.png">
+<meta property="og:url" content="https://ikartuzov-hub.github.io/ntm/flyer.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A1A20; --ink:#E8F4F6; --muted:#7FB5C4; --accent:#29B5CF;
+    --line:#17333C; --card:#0F2830; --btn:#123039; --rock:#16303A; --rock2:#1B3B46;
+  }
+  :root[data-theme="light"]{
+    --bg:#F1F8FA; --ink:#082830; --muted:#52788A; --accent:#1A8CA3;
+    --line:#D6E8ED; --card:#FFFFFF; --btn:#E4F1F5; --rock:#CFE3EA; --rock2:#BBD6DF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px}
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px}
+  .brand{display:flex;align-items:center;gap:9px;color:var(--ink)}
+  .brandmark{width:26px;height:26px;flex:none}
+  .wm{font-family:"Fraunces",serif;font-weight:600;font-size:18px}
+  .wm b{color:var(--accent);font-weight:600}
+  .topctrl{display:flex;align-items:center;gap:8px}
+  .rbtn{width:40px;height:40px;min-width:40px;padding:0;border-radius:50%;border:1px solid var(--line);
+    background:var(--btn);color:var(--ink);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;
+    display:flex;align-items:center;justify-content:center}
+  .langwrap{position:relative}
+  .menu{position:absolute;right:0;top:46px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:6px;min-width:150px;display:none;z-index:40;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .menu.open{display:block}
+  .menu button{display:flex;gap:10px;align-items:center;width:100%;padding:8px 10px;border-radius:8px;border:none;
+    background:transparent;color:var(--muted);font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;text-align:left}
+  .menu button:hover{background:var(--btn);color:var(--ink)}
+  .menu button.on{color:var(--accent);font-weight:600}
+  .menu .code{display:inline-block;width:26px;font-weight:700;font-size:12px}
+
+  .hero{padding:30px 0 10px}
+  .kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(34px,8vw,54px);line-height:1.08;letter-spacing:-.6px}
+  .sub{margin-top:16px;font-size:clamp(15px,2.3vw,18px);color:var(--muted);max-width:48ch}
+
+  /* ── вау-сцена: живая левада ── */
+  .scene{margin:28px 0 6px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
+  .scene svg{display:block;width:100%;height:auto}
+  .water{fill:none;stroke:var(--accent);stroke-width:3.4;stroke-linecap:round;
+    stroke-dasharray:9 11;animation:run 1.15s linear infinite}
+  .water.slow{animation-duration:1.9s;opacity:.5;stroke-width:2.4}
+  @keyframes run{to{stroke-dashoffset:-20}}
+  .mist{opacity:.16;animation:drift 9s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:translateX(-14px)}to{transform:translateX(16px)}}
+  .hiker{animation:walk 7s linear infinite}
+  @keyframes walk{0%{transform:translateX(0)}100%{transform:translateX(300px)}}
+  .sun{animation:glow 4.5s ease-in-out infinite alternate}
+  @keyframes glow{from{opacity:.55}to{opacity:1}}
+  @media(prefers-reduced-motion:reduce){.water,.mist,.hiker,.sun{animation:none}}
+
+  .sceneCap{padding:12px 18px 16px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+
+  .ctaRow{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .primary{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;
+    border:none;cursor:pointer;text-decoration:none;font-family:inherit;font-weight:600;font-size:16px;
+    padding:14px 26px;border-radius:999px;transition:.15s}
+  .primary:hover{transform:translateY(-1px)}
+  .ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--line);
+    color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding:13px 22px;border-radius:999px}
+  .ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  .sec{margin-top:46px}
+  h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(22px,4.6vw,30px);line-height:1.2}
+  .ss{margin-top:10px;font-size:15px;color:var(--muted);max-width:52ch}
+
+  .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:24px}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .fcard .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);margin-bottom:12px}
+  .fcard h3{font-size:15px;font-weight:600;line-height:1.35}
+  .fcard .g{margin-top:6px;font-size:14px;color:var(--muted)}
+
+  .payline{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .payline .pt{font-size:14px;color:var(--muted)}
+  .payline .pv{font-family:"Fraunces",serif;font-size:clamp(22px,5vw,30px);font-weight:600;color:var(--accent);margin-top:4px}
+  .payline .pn{margin-top:10px;font-size:13px;color:var(--muted)}
+
+  .quote{margin-top:24px;background:var(--card);border-left:3px solid var(--accent);border-radius:0 14px 14px 0;padding:18px 20px}
+  .quote p{font-size:15px;line-height:1.65}
+  .quote .who{margin-top:10px;font-size:13px;color:var(--muted)}
+
+  .steps{display:grid;gap:14px;margin-top:22px}
+  .step{display:flex;gap:14px;align-items:flex-start}
+  .step .n{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+  .step p{font-size:15px;color:var(--muted);padding-top:3px}
+
+  .shareRow{text-align:center;margin-top:36px}
+  .share{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--muted);
+    border:1px solid var(--line);cursor:pointer;font-family:inherit;font-weight:500;font-size:14px;
+    padding:11px 20px;border-radius:999px}
+  .share:hover{border-color:var(--accent);color:var(--ink)}
+  .disc{margin-top:26px;font-size:12px;color:var(--muted)}
+
+  footer{padding:26px 0 56px;color:var(--muted);font-size:15px;border-top:1px solid var(--line);margin-top:26px;text-align:center}
+  footer a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px;
+    display:inline-block;padding:8px 4px;font-weight:500}
+  footer a:hover{color:var(--accent)}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <svg class="brandmark" viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="nTm">
+      <path d="M28 22 H72"/><path d="M50 22 V68"/>
+      <path d="M15 84 Q28 78 39 84 Q50 90 61 84 Q72 78 85 84"/>
+    </svg>
+    <span class="wm">n<b>T</b>m</span>
+  </div>
+  <div class="topctrl">
+    <div class="langwrap">
+      <button class="rbtn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Language">PT</button>
+      <div class="menu" id="langMenu"></div>
+    </div>
+    <button class="rbtn" id="themeBtn" aria-label="Theme">☾</button>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="kicker" id="kicker"></div>
+    <h1 id="title"></h1>
+    <p class="sub" id="sub"></p>
+
+    <div class="scene">
+      <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- солнце -->
+        <circle class="sun" cx="546" cy="52" r="22" fill="var(--accent)" opacity=".7"/>
+        <!-- дальние пики -->
+        <path d="M0 150 L90 78 L150 128 L215 62 L300 150 Z" fill="var(--rock)"/>
+        <path d="M240 150 L330 66 L400 122 L470 74 L560 150 Z" fill="var(--rock)"/>
+        <!-- ближний хребет -->
+        <path d="M0 178 L120 108 L215 166 L330 96 L455 168 L560 112 L640 172 L640 260 L0 260 Z" fill="var(--rock2)"/>
+        <!-- туман -->
+        <g class="mist">
+          <ellipse cx="180" cy="146" rx="120" ry="15" fill="var(--ink)"/>
+          <ellipse cx="440" cy="132" rx="100" ry="12" fill="var(--ink)"/>
+        </g>
+        <!-- канал левады: русло -->
+        <path d="M-10 214 C90 198 150 232 250 216 C350 200 410 236 510 218 C570 208 610 214 650 208"
+              fill="none" stroke="var(--line)" stroke-width="9" stroke-linecap="round"/>
+        <!-- бегущая вода -->
+        <path class="water" d="M-10 214 C90 198 150 232 250 216 C350 200 410 236 510 218 C570 208 610 214 650 208"/>
+        <!-- боковой отвод — «сухая» ветка, поток тоньше -->
+        <path class="water slow" d="M250 216 C268 244 300 248 340 246"/>
+        <!-- лавры вдоль тропы -->
+        <g fill="var(--rock)">
+          <circle cx="70" cy="196" r="13"/><circle cx="96" cy="203" r="9"/>
+          <circle cx="392" cy="200" r="12"/><circle cx="416" cy="206" r="8"/>
+          <circle cx="596" cy="196" r="11"/>
+        </g>
+        <!-- путник -->
+        <g class="hiker">
+          <circle cx="140" cy="200" r="4.5" fill="var(--accent)"/>
+          <path d="M140 205 v11 M140 209 l-6 5 M140 209 l6 4 M140 216 l-5 9 M140 216 l5 9"
+                stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        </g>
+      </svg>
+      <div class="sceneCap" id="sceneCap"></div>
+    </div>
+
+    <div class="ctaRow">
+      <a class="primary" id="ctaCheck" href="./"></a>
+      <a class="ghost" id="ctaBot" target="_blank" rel="noopener"></a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 id="featTitle"></h2>
+    <p class="ss" id="featSub"></p>
+    <div class="fgrid" id="fgrid"></div>
+  </section>
+
+  <section class="sec">
+    <h2 id="payTitle"></h2>
+    <div class="payline">
+      <div class="pt" id="payLbl"></div>
+      <div class="pv" id="payVal"></div>
+      <div class="pn" id="payNote"></div>
+    </div>
+    <div class="quote">
+      <p id="quoteText"></p>
+      <div class="who" id="quoteWho"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 id="howTitle"></h2>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><p id="s1"></p></div>
+      <div class="step"><div class="n">2</div><p id="s2"></p></div>
+      <div class="step"><div class="n">3</div><p id="s3"></p></div>
+    </div>
+  </section>
+
+  <div class="shareRow"><button class="share" id="shareBtn"></button></div>
+  <p class="disc" id="disc"></p>
+</main>
+
+<footer class="wrap" id="foot"></footer>
+
+<script>
+(function(){
+  var LANGS=[{code:"pt",label:"Português"},{code:"en",label:"English"},{code:"ru",label:"Русский"},{code:"es",label:"Español"},{code:"de",label:"Deutsch"}];
+  var HUB="https://ikartuzov-hub.github.io/seedwave-catalog/hub/";
+  var APP="https://ikartuzov-hub.github.io/ntm/";
+
+  var FEAT={
+    pt:[["Aberto ou fechado, agora","estado dos 14 percursos, atualizado à hora"],
+        ["Tempo no início do trilho","não no Funchal — a 1 800 m, onde vai andar"],
+        ["Reserva num toque","direto ao portal oficial SIMplifica"],
+        ["Se fechou, para onde ir","o trilho aberto mais próximo, do mesmo tipo"],
+        ["Segredo da semana","um lugar que os autocarros não conhecem"],
+        ["Cinco línguas, sem app","abre no telemóvel, funciona no browser"]],
+    en:[["Open or closed, right now","status of 14 trails, updated hourly"],
+        ["Weather at the trailhead","not in Funchal — at 1,800 m, where you'll walk"],
+        ["Booking in one tap","straight to the official SIMplifica portal"],
+        ["If it's closed, where to go","the nearest open trail of the same kind"],
+        ["Secret of the week","a place the tour buses don't know"],
+        ["Five languages, no app","opens on your phone, runs in the browser"]],
+    ru:[["Открыто или закрыто — сейчас","статус 14 троп, обновление каждый час"],
+        ["Погода на старте маршрута","не в Фуншале — на 1 800 м, где вы пойдёте"],
+        ["Бронь в одно касание","сразу на официальный портал SIMplifica"],
+        ["Закрыто — куда идти","ближайшая открытая тропа того же типа"],
+        ["Секрет недели","место, которого не знают автобусы"],
+        ["Пять языков, без приложения","открывается на телефоне, работает в браузере"]],
+    es:[["Abierto o cerrado, ahora","estado de 14 senderos, actualizado cada hora"],
+        ["El tiempo al inicio de la ruta","no en Funchal — a 1 800 m, donde vas a caminar"],
+        ["Reserva en un toque","directo al portal oficial SIMplifica"],
+        ["Si está cerrado, adónde ir","el sendero abierto más cercano del mismo tipo"],
+        ["Secreto de la semana","un lugar que los autobuses no conocen"],
+        ["Cinco idiomas, sin app","se abre en el móvil, funciona en el navegador"]],
+    de:[["Offen oder gesperrt — jetzt","Status von 14 Wegen, stündlich aktualisiert"],
+        ["Wetter am Startpunkt","nicht in Funchal — auf 1 800 m, wo Sie gehen"],
+        ["Buchung mit einem Tipp","direkt zum offiziellen SIMplifica-Portal"],
+        ["Gesperrt? Wohin dann","der nächste offene Weg derselben Art"],
+        ["Geheimtipp der Woche","ein Ort, den die Reisebusse nicht kennen"],
+        ["Fünf Sprachen, keine App","öffnet am Handy, läuft im Browser"]]
+  };
+
+  var S={
+    pt:{kicker:"Trilhos · Madeira",title:"Aberto hoje?",
+      sub:"Desde 1 de janeiro de 2026 todos os percursos classificados exigem reserva. E fecham sem aviso. Veja o estado, o tempo lá em cima e reserve — antes de subir a serra.",
+      sceneCap:"A água corre até aos trilhos abertos. Onde o percurso está fechado, o fio da levada seca.",
+      ctaCheck:"Ver os trilhos agora →",ctaBot:"Falar no Telegram",
+      featTitle:"O que faz o nTm",featSub:"Uma pergunta, uma resposta, antes de meter o carro à serra.",
+      payTitle:"Quanto custa — e a quem paga",payLbl:"Taxa oficial por percurso",payVal:"€4,50 · PR1: €10,50",
+      payNote:"Residentes e crianças até 12 anos: grátis, mas reserva obrigatória. Sem bilhete: coima de €250. Nós não recebemos o seu dinheiro — o botão leva ao portal oficial SIMplifica. Portaria 801/2025 + 48/2026.",
+      quoteText:"«Vivo aqui há cinco anos. Já subi ao Areeiro com +26° no Funchal e +9° com vento de 62 km/h no cume. Já cheguei a um trilho fechado nessa manhã. Fiz o nTm para não voltar a acontecer — a mim ou a si.»",
+      quoteWho:"Igor Kartuzov · Funchal · construo casas e sistemas de IA",
+      howTitle:"Como funciona",
+      s1:"Abre o nTm — vê os 14 percursos, quais estão abertos e o tempo em cada início de trilho.",
+      s2:"Escolhe o seu. Se estiver fechado, mostramos a alternativa aberta mais próxima.",
+      s3:"Reserva o slot no portal oficial SIMplifica — e vai com o bilhete no telemóvel.",
+      shareBtn:"Enviar a um amigo",shareCopied:"Copiado ✓",
+      shareText:"nTm — Aberto hoje? Trilhos da Madeira ao vivo: estado + tempo no início do percurso:",
+      disc:"Informação indicativa. Estado oficial dos trilhos: IFCN. Reservas e pagamentos: portal SIMplifica. Não somos operador de pagamentos nem agência de viagens."},
+
+    en:{kicker:"Trails · Madeira",title:"Open today?",
+      sub:"Since 1 January 2026 every classified trail needs a booking. And they close without warning. Check the status, the weather up there, and book — before you drive into the mountains.",
+      sceneCap:"Water runs to the open trails. Where a trail is closed, the levada runs dry.",
+      ctaCheck:"See the trails now →",ctaBot:"Talk on Telegram",
+      featTitle:"What nTm does",featSub:"One question, one answer, before you put the car on the mountain road.",
+      payTitle:"What it costs — and who takes the money",payLbl:"Official fee per trail",payVal:"€4.50 · PR1: €10.50",
+      payNote:"Residents and children up to 12: free, but booking still required. No ticket: €250 fine. We never take your money — the button goes to the official SIMplifica portal. Portaria 801/2025 + 48/2026.",
+      quoteText:"“I've lived here five years. I've stood on Areeiro at +9° with a 62 km/h wind while Funchal was +26°. I've driven to a trail that had closed that morning. I built nTm so it doesn't happen again — to me, or to you.”",
+      quoteWho:"Igor Kartuzov · Funchal · I build homes and AI systems",
+      howTitle:"How it works",
+      s1:"Open nTm — see all 14 trails, which are open, and the live weather at each trailhead.",
+      s2:"Pick yours. If it's closed, we show you the nearest open trail of the same kind.",
+      s3:"Book your slot on the official SIMplifica portal — and go, ticket on your phone.",
+      shareBtn:"Send to a friend",shareCopied:"Copied ✓",
+      shareText:"nTm — Open today? Madeira trails live: status + weather at the trailhead:",
+      disc:"Indicative information. Official trail status: IFCN. Bookings and payments: SIMplifica portal. We are not a payment operator or a travel agency."},
+
+    ru:{kicker:"Тропы · Мадейра",title:"Открыто сегодня?",
+      sub:"С 1 января 2026 на каждую классифицированную тропу нужна бронь. И они закрываются без предупреждения. Проверьте статус, погоду наверху и забронируйте — до того, как поедете в горы.",
+      sceneCap:"Вода бежит к открытым тропам. Там, где тропа закрыта, левада пересыхает.",
+      ctaCheck:"Смотреть тропы сейчас →",ctaBot:"Написать в Telegram",
+      featTitle:"Что делает nTm",featSub:"Один вопрос, один ответ — до того, как машина свернёт в горы.",
+      payTitle:"Сколько стоит — и кому платите",payLbl:"Официальный сбор за тропу",payVal:"€4,50 · PR1: €10,50",
+      payNote:"Резиденты и дети до 12 лет — бесплатно, но бронь всё равно обязательна. Без билета — штраф €250. Ваши деньги мы не получаем: кнопка ведёт на официальный портал SIMplifica. Portaria 801/2025 + 48/2026.",
+      quoteText:"«Я живу здесь пять лет. Стоял на Арейру при +9° и ветре 62 км/ч, когда в Фуншале было +26°. Приезжал к тропе, которую закрыли тем же утром. Я сделал nTm, чтобы это больше не повторилось — ни со мной, ни с вами.»",
+      quoteWho:"Игорь Картузов · Фуншал · строю дома и AI-системы",
+      howTitle:"Как это работает",
+      s1:"Открываете nTm — видите 14 троп, какие открыты, и живую погоду на старте каждой.",
+      s2:"Выбираете свою. Если закрыта — показываем ближайшую открытую того же типа.",
+      s3:"Бронируете слот на официальном портале SIMplifica — и идёте, билет в телефоне.",
+      shareBtn:"Отправить другу",shareCopied:"Скопировано ✓",
+      shareText:"nTm — Открыто сегодня? Тропы Мадейры вживую: статус + погода на старте маршрута:",
+      disc:"Справочная информация. Официальный статус троп: IFCN. Бронь и оплата: портал SIMplifica. Мы не платёжный оператор и не турагентство."},
+
+    es:{kicker:"Senderos · Madeira",title:"¿Abierto hoy?",
+      sub:"Desde el 1 de enero de 2026 todos los senderos clasificados requieren reserva. Y cierran sin avisar. Comprueba el estado, el tiempo allí arriba y reserva — antes de subir a la montaña.",
+      sceneCap:"El agua corre hacia los senderos abiertos. Donde la ruta está cerrada, la levada se seca.",
+      ctaCheck:"Ver los senderos ahora →",ctaBot:"Hablar en Telegram",
+      featTitle:"Qué hace nTm",featSub:"Una pregunta, una respuesta, antes de meter el coche en la montaña.",
+      payTitle:"Cuánto cuesta — y a quién pagas",payLbl:"Tasa oficial por sendero",payVal:"4,50 € · PR1: 10,50 €",
+      payNote:"Residentes y niños hasta 12 años: gratis, pero la reserva sigue siendo obligatoria. Sin entrada: multa de 250 €. No recibimos tu dinero: el botón lleva al portal oficial SIMplifica. Portaria 801/2025 + 48/2026.",
+      quoteText:"«Vivo aquí desde hace cinco años. He estado en Areeiro a +9° con viento de 62 km/h mientras en Funchal había +26°. He llegado a un sendero que habían cerrado esa misma mañana. Hice nTm para que no vuelva a pasar — ni a mí, ni a ti.»",
+      quoteWho:"Igor Kartuzov · Funchal · construyo casas y sistemas de IA",
+      howTitle:"Cómo funciona",
+      s1:"Abres nTm — ves los 14 senderos, cuáles están abiertos y el tiempo en el inicio de cada uno.",
+      s2:"Eliges el tuyo. Si está cerrado, te mostramos la alternativa abierta más cercana.",
+      s3:"Reservas el slot en el portal oficial SIMplifica — y vas, con la entrada en el móvil.",
+      shareBtn:"Enviar a un amigo",shareCopied:"Copiado ✓",
+      shareText:"nTm — ¿Abierto hoy? Senderos de Madeira en vivo: estado + tiempo al inicio de la ruta:",
+      disc:"Información indicativa. Estado oficial de los senderos: IFCN. Reservas y pagos: portal SIMplifica. No somos operador de pagos ni agencia de viajes."},
+
+    de:{kicker:"Wanderwege · Madeira",title:"Heute offen?",
+      sub:"Seit dem 1. Januar 2026 braucht jeder klassifizierte Weg eine Reservierung. Und sie werden ohne Vorwarnung gesperrt. Prüfen Sie Status und Wetter da oben — bevor Sie in die Berge fahren.",
+      sceneCap:"Das Wasser fließt zu den offenen Wegen. Wo ein Weg gesperrt ist, versiegt die Levada.",
+      ctaCheck:"Wege jetzt ansehen →",ctaBot:"Auf Telegram schreiben",
+      featTitle:"Was nTm leistet",featSub:"Eine Frage, eine Antwort — bevor das Auto in die Bergstraße einbiegt.",
+      payTitle:"Was es kostet — und wer das Geld bekommt",payLbl:"Offizielle Gebühr pro Weg",payVal:"4,50 € · PR1: 10,50 €",
+      payNote:"Einwohner und Kinder bis 12: kostenlos, Reservierung dennoch Pflicht. Ohne Ticket: 250 € Bußgeld. Ihr Geld erhalten wir nie — der Button führt zum offiziellen SIMplifica-Portal. Portaria 801/2025 + 48/2026.",
+      quoteText:"«Ich lebe seit fünf Jahren hier. Ich stand auf dem Areeiro bei +9° und 62 km/h Wind, während es in Funchal +26° hatte. Ich bin zu einem Weg gefahren, der am selben Morgen gesperrt wurde. Ich habe nTm gebaut, damit das nicht wieder passiert — mir nicht, und Ihnen nicht.»",
+      quoteWho:"Igor Kartuzov · Funchal · ich baue Häuser und KI-Systeme",
+      howTitle:"So funktioniert es",
+      s1:"nTm öffnen — alle 14 Wege sehen, welche offen sind, und das Live-Wetter am jeweiligen Startpunkt.",
+      s2:"Ihren Weg wählen. Ist er gesperrt, zeigen wir den nächsten offenen Weg derselben Art.",
+      s3:"Slot im offiziellen SIMplifica-Portal buchen — und los, Ticket auf dem Handy.",
+      shareBtn:"An einen Freund senden",shareCopied:"Kopiert ✓",
+      shareText:"nTm — Heute offen? Madeiras Wanderwege live: Status + Wetter am Startpunkt:",
+      disc:"Unverbindliche Information. Offizieller Wegstatus: IFCN. Buchung und Zahlung: SIMplifica-Portal. Wir sind weder Zahlungsdienstleister noch Reisebüro."}
+  };
+
+  var VALID=["pt","en","ru","es","de"], lang="pt", theme="night";
+  var params=new URLSearchParams(location.search);
+  var pl=params.get("lang"), sl=null; try{sl=localStorage.getItem("ntm-lang")}catch(e){}
+  if(VALID.indexOf(pl)>=0) lang=pl; else if(VALID.indexOf(sl)>=0) lang=sl;
+  var ptm=params.get("theme"), stm=null; try{stm=localStorage.getItem("ntm-theme")}catch(e){}
+  theme=(ptm==="light"||ptm==="night")?ptm:(stm==="light"||stm==="night")?stm:"night";
+  applyTheme(theme);
+
+  function applyTheme(t){theme=t;
+    if(t==="light") document.documentElement.setAttribute("data-theme","light");
+    else document.documentElement.removeAttribute("data-theme");
+    var b=document.getElementById("themeBtn"); if(b) b.textContent=(t==="light")?"☀":"☾";
+    try{localStorage.setItem("ntm-theme",t)}catch(e){}}
+  document.getElementById("themeBtn").onclick=function(){applyTheme(theme==="light"?"night":"light")};
+
+  function qp(url){var s="lang="+lang+"&theme="+theme;return url+(url.indexOf("?")>=0?"&":"?")+s}
+
+  var lb=document.getElementById("langBtn"), lm=document.getElementById("langMenu");
+  function buildMenu(){lm.innerHTML="";LANGS.forEach(function(l){
+    var b=document.createElement("button"); if(l.code===lang) b.className="on";
+    var c=document.createElement("span"); c.className="code"; c.textContent=l.code.toUpperCase();
+    b.appendChild(c); b.appendChild(document.createTextNode(l.label));
+    b.onclick=function(){lm.classList.remove("open"); if(l.code!==lang){lang=l.code; try{localStorage.setItem("ntm-lang",lang)}catch(e){} render();}};
+    lm.appendChild(b);});}
+  lb.onclick=function(e){e.stopPropagation();var o=lm.classList.toggle("open");lb.setAttribute("aria-expanded",o?"true":"false");if(o)buildMenu();};
+  document.addEventListener("click",function(e){if(!e.target.closest(".langwrap")) lm.classList.remove("open");});
+
+  document.getElementById("shareBtn").onclick=function(){
+    var t=S[lang]||S.pt, txt=t.shareText+" "+APP+"?lang="+lang, self=this;
+    if(navigator.share){navigator.share({text:txt}).catch(function(){})}
+    else{(navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(function(){
+      self.textContent=t.shareCopied; setTimeout(function(){self.textContent=t.shareBtn},1800);
+    }).catch(function(){})}
+  };
+
+  function render(){
+    var t=S[lang]||S.pt, feat=FEAT[lang]||FEAT.pt;
+    document.documentElement.lang=lang;
+    ["kicker","title","sub","sceneCap","featTitle","featSub","payTitle","payLbl","payVal","payNote",
+     "quoteText","quoteWho","howTitle","s1","s2","s3","disc","shareBtn"].forEach(function(id){
+      document.getElementById(id).textContent=t[id];
+    });
+    document.getElementById("ctaCheck").textContent=t.ctaCheck;
+    document.getElementById("ctaCheck").href=qp("./");
+    document.getElementById("ctaBot").textContent=t.ctaBot;
+    document.getElementById("ctaBot").href="https://t.me/SeedWaveBot?start=ntm_"+lang+"_flyer";
+    var g=document.getElementById("fgrid"); g.innerHTML="";
+    feat.forEach(function(row){
+      var d=document.createElement("div"); d.className="fcard";
+      var dot=document.createElement("div"); dot.className="dot"; d.appendChild(dot);
+      var h=document.createElement("h3"); h.textContent=row[0]; d.appendChild(h);
+      var gg=document.createElement("div"); gg.className="g"; gg.textContent=row[1]; d.appendChild(gg);
+      g.appendChild(d);
+    });
+    lb.textContent=lang.toUpperCase();
+    document.getElementById("foot").innerHTML='© '+(new Date().getFullYear())+' <a href="'+qp(HUB)+'" target="_blank" rel="noopener">SeedWave</a> · <a href="https://www.linkedin.com/in/igor-kartuzov/" target="_blank" rel="noopener">Igor Kartuzov</a>';
+  }
+  render();
+})();
+</script>
+</body>
+</html>
