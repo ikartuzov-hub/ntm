@@ -27,6 +27,8 @@
   "feeNote": "booking required · residents & kids ≤12 free",
   "bookBtn": "Book a slot",
   "closedBtn": "Closed",
+  "altLead": "Nearest open trail of the same type:",
+  "altLeadAny": "Nearest open trail:",
   "note_oneway": "Pedra Rija → Pico Ruivo section is one-way",
   "note_pr1pass": "Included in the PR1 ticket (€10.50) — no extra fee",
   "pr1_ticket_included": "Included in the PR1 ticket (€10.50) — no extra fee",

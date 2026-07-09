@@ -107,6 +107,10 @@
   .wx{margin-top:10px;font-size:14px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
   .wx .t{font-weight:600;color:var(--ink)}
   .note{margin-top:9px;font-size:13px;color:var(--warn)}
+  .alt{margin-top:9px;font-size:13px;color:var(--accent)}
+  .alt a{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+  .tcard{transition:border-color .35s}
+  .tcard.flash{border-color:var(--accent)}
   .trow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-top:13px;
     border-top:1px solid var(--line);padding-top:12px}
   .fee{font-size:14px;color:var(--muted)}
@@ -284,6 +288,42 @@
     return DATA.trails.filter(function(t){return stateOf(t.id)==="open"}).length;
   }
 
+  /* ── умный совет: тропа закрыта → ближайшая открытая того же типа ── */
+  function distKm(a,b){
+    var R=6371,p=Math.PI/180;
+    var h=Math.sin((b.lat-a.lat)*p/2);h*=h;
+    var w=Math.sin((b.lon-a.lon)*p/2);w*=w;
+    var c=h+Math.cos(a.lat*p)*Math.cos(b.lat*p)*w;
+    return 2*R*Math.asin(Math.sqrt(c));
+  }
+  function nearestOpen(t){
+    function pick(sameKind){
+      var best=null,bd=1e9;
+      DATA.trails.forEach(function(o){
+        if(o.id===t.id||stateOf(o.id)!=="open")return;
+        if(sameKind&&o.kind!==t.kind)return;
+        var d=distKm(t.start,o.start);
+        if(d<bd){bd=d;best=o}
+      });
+      return best?{t:best,km:bd,same:sameKind}:null;
+    }
+    return pick(true)||pick(false);
+  }
+  function goTrail(id){
+    var el=document.getElementById("card-"+id);
+    if(!el){filter="all";renderChips();renderCards();el=document.getElementById("card-"+id)}
+    if(!el)return;
+    el.scrollIntoView({behavior:reduced?"auto":"smooth"});
+    el.classList.add("flash");
+    setTimeout(function(){el.classList.remove("flash")},1600);
+  }
+  document.getElementById("cards").addEventListener("click",function(e){
+    var a=e.target.closest("[data-goto]");
+    if(!a)return;
+    e.preventDefault();
+    goTrail(a.getAttribute("data-goto"));
+  });
+
   /* ── живая левада: сегменты воды между узлами-тропами ── */
   function buildLevada(){
     var svg=document.getElementById("levada");
@@ -399,6 +439,15 @@
       }
       var feeTxt=t.fee>4.5?eur(t.fee):eur(4.5);
       var canBook=(stt==="open"||stt==="partial");
+      var altHtml="";
+      if(stt==="closed"){
+        var alt=nearestOpen(t);
+        if(alt){
+          var dTxt=alt.km<1?"&lt;1":"~"+Math.round(alt.km);
+          altHtml='<div class="alt">🧭 '+T(alt.same?"altLead":"altLeadAny")+' <a href="#card-'+alt.t.id+
+            '" data-goto="'+alt.t.id+'">'+alt.t.pr+' · '+alt.t.name.split("(")[0].trim()+'</a> · '+dTxt+' km</div>';
+        }
+      }
       card.innerHTML=
         '<div class="thead"><div><span class="pr">'+t.pr+'</span><h3>'+t.name+'</h3></div>'+
         '<span class="schip '+stt+'">'+T("status_"+stt)+'</span></div>'+
@@ -407,6 +456,7 @@
         '<span>'+T("diff_"+t.difficulty)+'</span></div>'+
         wxHtml+
         (nk?'<div class="note">'+T(nk)+'</div>':'')+
+        altHtml+
         '<div class="trow"><span class="fee"><b>'+feeTxt+'</b> · '+T("feeNote")+'</span>'+
         '<a class="book'+(canBook?'':' off')+'" href="'+DATA.config.bookingUrl+'" target="_blank" rel="noopener">'+
         (canBook?T("bookBtn"):T("closedBtn"))+'</a></div>';
