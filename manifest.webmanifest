@@ -1,0 +1,13 @@
+{
+  "name": "nTm — Novos Trilhos da Madeira",
+  "short_name": "nTm",
+  "description": "Aberto hoje? Trilhos da Madeira ao vivo: estado, tempo no início do percurso, reserva SIMplifica.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0A1A20",
+  "theme_color": "#0A1A20",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

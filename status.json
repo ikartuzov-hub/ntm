@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "product": "nTm",
+    "purpose": "Динамический слой: открыта/закрыта каждая тропа. Обновляется Make-сценарием по официальной странице IFCN (или вручную). trails.json при этом не трогается.",
+    "officialSource": "https://ifcn.madeira.gov.pt/",
+    "updatedAt": "2026-07-09T15:30:00Z",
+    "updatedBy": "manual",
+    "states": ["open", "partial", "closed", "unknown"]
+  },
+  "status": {
+    "pr1":   { "state": "open",    "noteKey": "note_oneway",  "verified": "2026-07-09" },
+    "pr1-2": { "state": "open",    "noteKey": "note_pr1pass", "verified": "2026-07-09" },
+    "pr5":   { "state": "closed",  "noteKey": "note_safety",  "verified": null },
+    "pr6":   { "state": "partial", "noteKey": "note_bypass",  "verified": null },
+    "pr6-1": { "state": "open",    "noteKey": null,           "verified": null },
+    "pr8":   { "state": "open",    "noteKey": null,           "verified": null },
+    "pr9":   { "state": "open",    "noteKey": "note_tunnels", "verified": null },
+    "pr10":  { "state": "closed",  "noteKey": "note_landslide", "verified": "2026-07-09" },
+    "pr11":  { "state": "open",    "noteKey": null,           "verified": null },
+    "pr12":  { "state": "partial", "noteKey": "note_km35",    "verified": null },
+    "pr13":  { "state": "open",    "noteKey": null,           "verified": null },
+    "pr18":  { "state": "closed",  "noteKey": "note_safety",  "verified": null },
+    "pr19":  { "state": "open",    "noteKey": null,           "verified": null },
+    "pr22":  { "state": "open",    "noteKey": null,           "verified": null }
+  }
+}

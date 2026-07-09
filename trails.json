@@ -1,0 +1,505 @@
+{
+  "meta": {
+    "product": "nTm — Novos Trilhos da Madeira",
+    "layer": 3,
+    "version": "0.1",
+    "updated": "2026-07-09",
+    "legal": "Portaria 801/2025 (10.12.2025) + Portaria 48/2026 (13.02.2026)",
+    "sources": [
+      "IFCN",
+      "SIMplifica",
+      "Visit Madeira"
+    ],
+    "bookingUrl": "https://simplifica.madeira.gov.pt/",
+    "ifcnPhone": "+351 291 145 590",
+    "fees": {
+      "standard": 4.5,
+      "operatorProtocol": 3.0,
+      "pr1": 10.5,
+      "pr1Operator": 7.0,
+      "childrenUnder12": 0,
+      "residents": 0,
+      "fineNoTicket": 250,
+      "passes": {
+        "day7": 52.5,
+        "note": "Мультипроездные 1/3/7 дней, последовательные даты, PR1 не включают; система SIMplifica сама применяет выгодный тариф"
+      }
+    },
+    "slotMinutes": 30,
+    "coordsNote": "Координаты стартов — точность ~100–300 м, достаточна для Open-Meteo; контрольная сверка ключевых точек — при сборке движка"
+  },
+  "trails": [
+    {
+      "id": "pr1",
+      "pr": "PR1",
+      "name": "Vereda do Areeiro (Pico do Areeiro → Pico Ruivo)",
+      "region": "central",
+      "start": {
+        "lat": 32.7357,
+        "lon": -16.9286,
+        "alt": 1818
+      },
+      "peakAlt": 1862,
+      "lengthKm": 7.0,
+      "roundTrip": false,
+      "routeNote": "oneway_section",
+      "durationH": 3.5,
+      "difficulty": "hard",
+      "kind": "mountain",
+      "fee": 10.5,
+      "passIncluded": false,
+      "photos": [
+        "img/pr1-1.webp",
+        "img/pr1-2.webp",
+        "img/pr1-3.webp"
+      ],
+      "highlight": {
+        "pt": "A travessia mais icónica da ilha, acima das nuvens entre os dois picos mais altos",
+        "en": "The island's most iconic ridge walk, above the clouds between the two highest peaks",
+        "ru": "Самый знаменитый маршрут острова — по гребню над облаками между двумя высочайшими пиками",
+        "es": "La travesía más icónica de la isla, sobre las nubes entre los dos picos más altos",
+        "de": "Die berühmteste Gratwanderung der Insel, über den Wolken zwischen den zwei höchsten Gipfeln"
+      }
+    },
+    {
+      "id": "pr1-2",
+      "pr": "PR1.2",
+      "name": "Vereda do Pico Ruivo (Achada do Teixeira → Pico Ruivo)",
+      "region": "central",
+      "start": {
+        "lat": 32.7597,
+        "lon": -16.9188,
+        "alt": 1592
+      },
+      "peakAlt": 1862,
+      "lengthKm": 5.6,
+      "roundTrip": true,
+      "durationH": 1.5,
+      "difficulty": "moderate",
+      "kind": "mountain",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr1-2-1.webp",
+        "img/pr1-2-2.webp",
+        "img/pr1-2-3.webp"
+      ],
+      "highlight": {
+        "pt": "O caminho mais curto para o tecto da Madeira — vista 360° do Pico Ruivo",
+        "en": "The shortest way to Madeira's rooftop — 360° view from Pico Ruivo",
+        "ru": "Кратчайший путь на крышу Мадейры — обзор 360° с Пику-Руйву",
+        "es": "El camino más corto al techo de Madeira — vista 360° desde el Pico Ruivo",
+        "de": "Der kürzeste Weg aufs Dach Madeiras — 360°-Blick vom Pico Ruivo"
+      },
+      "routeNote": "pr1_ticket_included"
+    },
+    {
+      "id": "pr5",
+      "pr": "PR5",
+      "name": "Vereda das Funduras",
+      "region": "east",
+      "start": {
+        "lat": 32.742,
+        "lon": -16.823,
+        "alt": 660
+      },
+      "peakAlt": 730,
+      "lengthKm": 8.7,
+      "roundTrip": false,
+      "durationH": 3.5,
+      "difficulty": "moderate",
+      "kind": "forest",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr5-1.webp",
+        "img/pr5-2.webp",
+        "img/pr5-3.webp"
+      ],
+      "highlight": {
+        "pt": "Laurissilva tranquila do leste — floresta UNESCO sem multidões",
+        "en": "The quiet eastern laurel forest — UNESCO woodland without the crowds",
+        "ru": "Тихий лавровый лес востока — лес ЮНЕСКО без толп",
+        "es": "La tranquila laurisilva del este — bosque UNESCO sin multitudes",
+        "de": "Der stille Lorbeerwald des Ostens — UNESCO-Wald ohne Menschenmassen"
+      }
+    },
+    {
+      "id": "pr6",
+      "pr": "PR6",
+      "name": "Levada das 25 Fontes",
+      "region": "west",
+      "start": {
+        "lat": 32.7627,
+        "lon": -17.129,
+        "alt": 1290
+      },
+      "peakAlt": 1290,
+      "lengthKm": 8.6,
+      "roundTrip": true,
+      "durationH": 3.0,
+      "difficulty": "moderate",
+      "kind": "levada",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr6-1.webp",
+        "img/pr6-2.webp",
+        "img/pr6-3.webp"
+      ],
+      "highlight": {
+        "pt": "A levada mais famosa: 25 nascentes a cair numa lagoa esmeralda",
+        "en": "The most famous levada: 25 springs cascading into an emerald lagoon",
+        "ru": "Самая знаменитая левада: 25 источников, падающих в изумрудную лагуну",
+        "es": "La levada más famosa: 25 manantiales cayendo a una laguna esmeralda",
+        "de": "Die berühmteste Levada: 25 Quellen stürzen in eine smaragdgrüne Lagune"
+      }
+    },
+    {
+      "id": "pr6-1",
+      "pr": "PR6.1",
+      "name": "Levada do Risco",
+      "region": "west",
+      "start": {
+        "lat": 32.7627,
+        "lon": -17.129,
+        "alt": 1290
+      },
+      "peakAlt": 1290,
+      "lengthKm": 3.0,
+      "roundTrip": true,
+      "durationH": 1.0,
+      "difficulty": "easy",
+      "kind": "levada",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr6-1-1.webp",
+        "img/pr6-1-2.webp",
+        "img/pr6-1-3.webp"
+      ],
+      "highlight": {
+        "pt": "Passeio fácil até à cascata do Risco, com 100 m de queda",
+        "en": "An easy walk to the 100-metre Risco waterfall",
+        "ru": "Лёгкая прогулка к стометровому водопаду Риску",
+        "es": "Un paseo fácil hasta la cascada del Risco, de 100 metros",
+        "de": "Ein leichter Spaziergang zum 100 Meter hohen Risco-Wasserfall"
+      }
+    },
+    {
+      "id": "pr8",
+      "pr": "PR8",
+      "name": "Vereda da Ponta de São Lourenço",
+      "region": "east",
+      "start": {
+        "lat": 32.7448,
+        "lon": -16.703,
+        "alt": 120
+      },
+      "peakAlt": 160,
+      "lengthKm": 8.0,
+      "roundTrip": true,
+      "durationH": 2.5,
+      "difficulty": "moderate",
+      "kind": "coastal",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr8-1.webp",
+        "img/pr8-2.webp",
+        "img/pr8-3.webp"
+      ],
+      "highlight": {
+        "pt": "Falésias vulcânicas e oceano dos dois lados — o trilho mais solarengo da ilha",
+        "en": "Volcanic cliffs with ocean on both sides — the sunniest trail on the island",
+        "ru": "Вулканические скалы и океан с двух сторон — самая солнечная тропа острова",
+        "es": "Acantilados volcánicos y océano a ambos lados — el sendero más soleado de la isla",
+        "de": "Vulkanklippen mit Ozean auf beiden Seiten — der sonnigste Weg der Insel"
+      }
+    },
+    {
+      "id": "pr9",
+      "pr": "PR9",
+      "name": "Levada do Caldeirão Verde",
+      "region": "north",
+      "start": {
+        "lat": 32.7846,
+        "lon": -16.902,
+        "alt": 980
+      },
+      "peakAlt": 980,
+      "lengthKm": 17.4,
+      "roundTrip": true,
+      "routeNote": "tunnels_headlamp",
+      "durationH": 5.0,
+      "difficulty": "moderate",
+      "kind": "levada",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr9-1.webp",
+        "img/pr9-2.webp",
+        "img/pr9-3.webp"
+      ],
+      "highlight": {
+        "pt": "Túneis na rocha e uma cascata num anfiteatro verde — leve lanterna",
+        "en": "Rock tunnels and a waterfall in a green amphitheatre — bring a headlamp",
+        "ru": "Тоннели в скале и водопад в зелёном амфитеатре — нужен фонарик",
+        "es": "Túneles en la roca y una cascada en un anfiteatro verde — lleva linterna",
+        "de": "Felstunnel und ein Wasserfall im grünen Amphitheater — Stirnlampe mitnehmen"
+      }
+    },
+    {
+      "id": "pr10",
+      "pr": "PR10",
+      "name": "Levada do Furado (Ribeiro Frio → Portela)",
+      "region": "north",
+      "start": {
+        "lat": 32.7346,
+        "lon": -16.8866,
+        "alt": 860
+      },
+      "peakAlt": 900,
+      "lengthKm": 11.0,
+      "roundTrip": false,
+      "durationH": 4.0,
+      "difficulty": "moderate",
+      "kind": "levada",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr10-1.webp",
+        "img/pr10-2.webp",
+        "img/pr10-3.webp"
+      ],
+      "highlight": {
+        "pt": "Uma das levadas mais antigas, no coração da Laurissilva",
+        "en": "One of the oldest levadas, deep in the heart of the laurel forest",
+        "ru": "Одна из старейших левад — в самом сердце лаврового леса",
+        "es": "Una de las levadas más antiguas, en el corazón de la laurisilva",
+        "de": "Eine der ältesten Levadas, mitten im Herzen des Lorbeerwaldes"
+      }
+    },
+    {
+      "id": "pr11",
+      "pr": "PR11",
+      "name": "Vereda dos Balcões",
+      "region": "north",
+      "start": {
+        "lat": 32.7346,
+        "lon": -16.8866,
+        "alt": 860
+      },
+      "peakAlt": 880,
+      "lengthKm": 3.0,
+      "roundTrip": true,
+      "durationH": 1.0,
+      "difficulty": "easy",
+      "kind": "levada",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr11-1.webp",
+        "img/pr11-2.webp",
+        "img/pr11-3.webp"
+      ],
+      "highlight": {
+        "pt": "Miradouro dos Balcões: o vale de Metade e os picos — quase sem esforço",
+        "en": "Balcões viewpoint: the Metade valley and the peaks — almost no effort",
+        "ru": "Смотровая Балконеш: долина Метаде и пики — почти без усилий",
+        "es": "Mirador de Balcões: el valle de Metade y los picos — casi sin esfuerzo",
+        "de": "Aussichtspunkt Balcões: das Metade-Tal und die Gipfel — fast ohne Anstrengung"
+      }
+    },
+    {
+      "id": "pr12",
+      "pr": "PR12",
+      "name": "Caminho Real da Encumeada",
+      "region": "central",
+      "start": {
+        "lat": 32.6968,
+        "lon": -17.009,
+        "alt": 1235
+      },
+      "peakAlt": 1235,
+      "lengthKm": 12.5,
+      "roundTrip": false,
+      "durationH": 5.0,
+      "difficulty": "hard",
+      "kind": "mountain",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr12-1.webp",
+        "img/pr12-2.webp",
+        "img/pr12-3.webp"
+      ],
+      "highlight": {
+        "pt": "Antigo caminho real entre vales — a Madeira antes das estradas",
+        "en": "The old royal road between valleys — Madeira before the roads",
+        "ru": "Старая королевская дорога между долинами — Мадейра до появления шоссе",
+        "es": "El antiguo camino real entre valles — Madeira antes de las carreteras",
+        "de": "Der alte Königsweg zwischen Tälern — Madeira vor den Straßen"
+      }
+    },
+    {
+      "id": "pr13",
+      "pr": "PR13",
+      "name": "Vereda do Fanal",
+      "region": "west",
+      "start": {
+        "lat": 32.8113,
+        "lon": -17.1439,
+        "alt": 1150
+      },
+      "peakAlt": 1400,
+      "lengthKm": 10.8,
+      "roundTrip": false,
+      "durationH": 4.0,
+      "difficulty": "moderate",
+      "kind": "forest",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr13-1.webp",
+        "img/pr13-2.webp",
+        "img/pr13-3.webp"
+      ],
+      "highlight": {
+        "pt": "Os tis centenários do Fanal no nevoeiro — o cenário mais fotografado da ilha",
+        "en": "Fanal's ancient laurel trees in the fog — the island's most photographed scenery",
+        "ru": "Вековые лавры Фанала в тумане — самый фотографируемый пейзаж острова",
+        "es": "Los laureles centenarios de Fanal en la niebla — el paisaje más fotografiado de la isla",
+        "de": "Die uralten Lorbeerbäume von Fanal im Nebel — die meistfotografierte Kulisse der Insel"
+      }
+    },
+    {
+      "id": "pr18",
+      "pr": "PR18",
+      "name": "Levada do Rei",
+      "region": "north",
+      "start": {
+        "lat": 32.8098,
+        "lon": -16.9066,
+        "alt": 530
+      },
+      "peakAlt": 610,
+      "lengthKm": 10.6,
+      "roundTrip": true,
+      "durationH": 4.0,
+      "difficulty": "moderate",
+      "kind": "levada",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr18-1.webp",
+        "img/pr18-2.webp",
+        "img/pr18-3.webp"
+      ],
+      "highlight": {
+        "pt": "A «levada do Rei» até ao vale escondido do Ribeiro Bonito",
+        "en": "The 'King's levada' into the hidden Ribeiro Bonito valley",
+        "ru": "«Королевская левада» — в скрытую долину Рибейру-Бониту",
+        "es": "La «levada del Rey» hasta el valle escondido de Ribeiro Bonito",
+        "de": "Die «Levada des Königs» ins verborgene Tal von Ribeiro Bonito"
+      }
+    },
+    {
+      "id": "pr19",
+      "pr": "PR19",
+      "name": "Caminho Real do Paul do Mar",
+      "region": "west",
+      "start": {
+        "lat": 32.7546,
+        "lon": -17.2069,
+        "alt": 590
+      },
+      "peakAlt": 590,
+      "lengthKm": 1.8,
+      "roundTrip": false,
+      "durationH": 1.3,
+      "difficulty": "moderate",
+      "kind": "coastal",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr19-1.webp",
+        "img/pr19-2.webp",
+        "img/pr19-3.webp"
+      ],
+      "highlight": {
+        "pt": "Descida histórica da falésia até à vila piscatória — pôr do sol garantido",
+        "en": "A historic cliff descent to the fishing village — guaranteed sunset views",
+        "ru": "Исторический спуск по скале к рыбацкой деревне — гарантированный закат",
+        "es": "Descenso histórico por el acantilado hasta el pueblo pesquero — atardecer garantizado",
+        "de": "Historischer Klippenabstieg zum Fischerdorf — Sonnenuntergang garantiert"
+      }
+    },
+    {
+      "id": "pr22",
+      "pr": "PR22",
+      "name": "Vereda do Chão dos Louros",
+      "region": "central",
+      "start": {
+        "lat": 32.758,
+        "lon": -17.021,
+        "alt": 900
+      },
+      "peakAlt": 950,
+      "lengthKm": 1.9,
+      "roundTrip": true,
+      "durationH": 0.8,
+      "difficulty": "easy",
+      "kind": "forest",
+      "fee": 4.5,
+      "passIncluded": true,
+      "photos": [
+        "img/pr22-1.webp",
+        "img/pr22-2.webp",
+        "img/pr22-3.webp"
+      ],
+      "highlight": {
+        "pt": "Circuito familiar na Laurissilva com zona de piquenique",
+        "en": "A family loop through the laurel forest with a picnic area",
+        "ru": "Семейное кольцо по лавровому лесу с пикниковой зоной",
+        "es": "Circuito familiar por la laurisilva con zona de picnic",
+        "de": "Familienrundweg durch den Lorbeerwald mit Picknickplatz"
+      }
+    }
+  ],
+  "config": {
+    "languages": [
+      {
+        "code": "pt",
+        "label": "Português"
+      },
+      {
+        "code": "en",
+        "label": "English"
+      },
+      {
+        "code": "ru",
+        "label": "Русский"
+      },
+      {
+        "code": "es",
+        "label": "Español"
+      },
+      {
+        "code": "de",
+        "label": "Deutsch"
+      }
+    ],
+    "hubUrl": "https://ikartuzov-hub.github.io/seedwave-catalog/",
+    "linkedinUrl": "https://www.linkedin.com/in/igor-kartuzov",
+    "bookingUrl": "https://simplifica.madeira.gov.pt/services/78-82-259",
+    "statusSourceUrl": "https://ifcn.madeira.gov.pt/",
+    "guideBotUrl": null,
+    "funchal": {
+      "lat": 32.6497,
+      "lon": -16.9086,
+      "alt": 25
+    },
+    "shareUrl": "https://ikartuzov-hub.github.io/ntm/"
+  }
+}
