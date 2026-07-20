@@ -3,8 +3,8 @@
     "product": "nTm",
     "purpose": "Динамический слой: открыта/закрыта каждая тропа. Обновляется Make-сценарием по официальной странице IFCN (или вручную). trails.json при этом не трогается.",
     "officialSource": "https://ifcn.madeira.gov.pt/",
-    "updatedAt": "2026-07-09T18:40:00Z",
-    "updatedBy": "manual",
+    "updatedAt": "2026-07-20T13:35:00Z",
+    "updatedBy": "manual · IFCN page dated 14 Jul 2026",
     "states": [
       "open",
       "partial",
@@ -14,74 +14,74 @@
   },
   "status": {
     "pr1": {
-      "state": "open",
-      "noteKey": "note_oneway",
-      "verified": "2026-07-09"
+      "state": "partial",
+      "noteKey": "note_pedrarija",
+      "verified": "2026-07-20"
     },
     "pr1-2": {
       "state": "open",
       "noteKey": "note_pr1pass",
-      "verified": "2026-07-09"
+      "verified": "2026-07-20"
     },
     "pr5": {
-      "state": "closed",
-      "noteKey": "note_safety",
-      "verified": null
+      "state": "open",
+      "noteKey": null,
+      "verified": "2026-07-20"
     },
     "pr6": {
       "state": "open",
       "noteKey": "note_bypass",
-      "verified": "2026-07-09"
+      "verified": "2026-07-20"
     },
     "pr6-1": {
       "state": "open",
       "noteKey": null,
-      "verified": null
+      "verified": "2026-07-20"
     },
     "pr8": {
       "state": "open",
       "noteKey": null,
-      "verified": null
+      "verified": "2026-07-20"
     },
     "pr9": {
       "state": "open",
       "noteKey": "note_tunnels",
-      "verified": null
+      "verified": "2026-07-20"
     },
     "pr10": {
-      "state": "closed",
-      "noteKey": "note_landslide",
-      "verified": "2026-07-09"
+      "state": "open",
+      "noteKey": null,
+      "verified": "2026-07-20"
     },
     "pr11": {
       "state": "open",
       "noteKey": null,
-      "verified": null
+      "verified": "2026-07-20"
     },
     "pr12": {
       "state": "partial",
       "noteKey": "note_km35",
-      "verified": null
+      "verified": "2026-07-20"
     },
     "pr13": {
       "state": "open",
       "noteKey": null,
-      "verified": null
+      "verified": "2026-07-20"
     },
     "pr18": {
-      "state": "closed",
-      "noteKey": "note_safety",
-      "verified": null
+      "state": "open",
+      "noteKey": null,
+      "verified": "2026-07-20"
     },
     "pr19": {
       "state": "open",
       "noteKey": null,
-      "verified": null
+      "verified": "2026-07-20"
     },
     "pr22": {
       "state": "open",
       "noteKey": null,
-      "verified": null
+      "verified": "2026-07-20"
     }
   }
 }
