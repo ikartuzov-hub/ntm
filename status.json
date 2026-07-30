@@ -3,8 +3,8 @@
     "product": "nTm",
     "purpose": "Динамический слой: открыта/закрыта каждая тропа. Обновляется Make-сценарием по официальной странице IFCN (или вручную). trails.json при этом не трогается.",
     "officialSource": "https://ifcn.madeira.gov.pt/",
-    "updatedAt": "2026-07-20T13:35:00Z",
-    "updatedBy": "manual · IFCN page dated 14 Jul 2026",
+    "updatedAt": "2026-07-30T20:55:00Z",
+    "updatedBy": "auto · Cowork weekly sync · IFCN page dated 24 Jul 2026",
     "states": [
       "open",
       "partial",
@@ -14,9 +14,9 @@
   },
   "status": {
     "pr1": {
-      "state": "partial",
-      "noteKey": "note_pedrarija",
-      "verified": "2026-07-20"
+      "state": "open",
+      "noteKey": "note_oneway",
+      "verified": "2026-07-30"
     },
     "pr1-2": {
       "state": "open",
