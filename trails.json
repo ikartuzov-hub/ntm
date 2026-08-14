@@ -490,7 +490,7 @@
         "label": "Deutsch"
       }
     ],
-    "hubUrl": "https://ikartuzov-hub.github.io/seedwave-catalog/hub/",
+    "hubUrl": "https://seedwave.pt/hub/",
     "linkedinUrl": "https://www.linkedin.com/in/igor-kartuzov/",
     "bookingUrl": "https://simplifica.madeira.gov.pt/services/78-82-259",
     "statusSourceUrl": "https://ifcn.madeira.gov.pt/",
@@ -500,6 +500,6 @@
       "lon": -16.9086,
       "alt": 25
     },
-    "shareUrl": "https://ikartuzov-hub.github.io/ntm/"
+    "shareUrl": "https://ntm.seedwave.pt/"
   }
 }
